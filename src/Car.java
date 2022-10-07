@@ -1,4 +1,4 @@
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Car extends Vehicle {
@@ -10,7 +10,7 @@ public class Car extends Vehicle {
         String factory, 
         String color, 
         int passengersNum, 
-        Date buyingDate, 
+        LocalDate buyingDate, 
         int idPlate,
         ArrayList tiresNum, 
         int horsePower,

@@ -46,17 +46,16 @@ public class Vehicle {
         long daysBetween = ChronoUnit.DAYS.between(this.buyingDate, curDate);
         long daysLeft = daysBetween;
 
-        System.out.println(daysBetween);
-
         // Get the different between two dates
         int years = (int)(daysBetween / 365);
         daysLeft = daysLeft - (years * 365);
-        System.out.println((years % 365));
         int months = (int)(daysLeft / 30);
         daysLeft = daysLeft - (months * 30);
         int days = (int)(daysLeft);
         
-        return Integer.toString(years) + "/" + Integer.toString(months) + "/" + Integer.toString(days);
+        String diffDate = Integer.toString(years) + " Years - " + Integer.toString(months) + " Months - " + Integer.toString(days) + " Days";
+
+        return diffDate;
     }
 
     public void displayVehicleInfo() {

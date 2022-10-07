@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.time.LocalDate;
+import java.util.Scanner;
 
 public class App {
 
@@ -9,7 +9,11 @@ public class App {
         ArrayList arr = new ArrayList<>();
         arr.add(4);
 
-        
+        // Scanner keyboard = new Scanner(System.in);
+        // System.out.println("Enter your name: ");
+
+        // String name = keyboard.nextLine();
+        // System.out.println("Hello sir " + name + "!");
 
         Vehicle vehicle = new Vehicle(
             "Porche", "VW", "white", 2, date, 01007, arr, 580
