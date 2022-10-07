@@ -1,18 +1,17 @@
 import java.sql.Date;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Vehicle {
     
-    String brand;
-    String factory;
-    String color;
-    int passengersNum;
-    Date buyingDate;
-    int idPlate;
-    ArrayList tiresNum;
-    int horsePower;
+    private String brand;
+    private String factory;
+    private String color;
+    private int passengersNum;
+    private Date buyingDate;
+    private int idPlate;
+    private ArrayList tiresNum;
+    private int horsePower;
 
     public Vehicle(
         String brand,

@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Car extends Vehicle {
 
-    float pickupTime;
+    private float pickupTime;
 
     public Car(
         String brand, 
@@ -18,6 +18,5 @@ public class Car extends Vehicle {
     ) {
         super(brand, factory, color, passengersNum, buyingDate, idPlate, tiresNum, horsePower);
         this.pickupTime = pickupTime;
-    }
-    
+    } 
 }

@@ -3,8 +3,8 @@ import java.util.ArrayList;
 
 public class Airplane extends Vehicle {
 
-    int enginesNum;
-    float maxAltitude;
+    private int enginesNum;
+    private float maxAltitude;
 
     public Airplane(
         String brand, 

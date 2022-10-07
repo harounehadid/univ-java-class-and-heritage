@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class RaceCar extends Car {
 
-    boolean isTurbo;
+    private boolean isTurbo;
 
     public RaceCar(
         String brand, 

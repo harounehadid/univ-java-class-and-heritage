@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class ConvertibleCar extends Car {
 
-    int doorsNum;
+    private int doorsNum;
 
     public ConvertibleCar(
         String brand, 
@@ -14,10 +14,10 @@ public class ConvertibleCar extends Car {
         int idPlate,
         ArrayList tiresNum, 
         int horsePower, 
-        float pickupTime
+        float pickupTime,
+        int doorsNum
     ) {
         super(brand, factory, color, passengersNum, buyingDate, idPlate, tiresNum, horsePower, pickupTime);
         this.doorsNum = doorsNum;
-    }
-    
+    } 
 }
