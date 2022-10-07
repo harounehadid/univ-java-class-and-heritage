@@ -37,7 +37,7 @@ public class Vehicle {
 
     // This is just a random function
     public int calculateHorsePower(float x) {
-        return (int)((x * Math.pow(10, 3) * 1.43));
+        return (int)((x * Math.pow(10, 3) * 1.43f));
     }
 
     // I'll change it later
