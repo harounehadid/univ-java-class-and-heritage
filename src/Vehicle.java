@@ -1,6 +1,6 @@
-import java.sql.Date;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class Vehicle {
     
@@ -8,7 +8,7 @@ public class Vehicle {
     private String factory;
     private String color;
     private int passengersNum;
-    private Date buyingDate;
+    private LocalDate buyingDate;
     private int idPlate;
     private ArrayList tiresNum;
     private int horsePower;
@@ -18,7 +18,7 @@ public class Vehicle {
         String factory,
         String color,
         int passengersNum,
-        Date buyingDate,
+        LocalDate buyingDate,
         int idPlate,
         ArrayList tiresNum,
         int horsePower
@@ -40,7 +40,31 @@ public class Vehicle {
     }
 
     // I'll change it later
-    public LocalDateTime calculatePeriod(Date buyingDate) {
-        return LocalDateTime.now();
+    public String calculatePeriod() {
+        LocalDate curDate = LocalDate.now();
+        
+        long daysBetween = ChronoUnit.DAYS.between(this.buyingDate, curDate);
+        long daysLeft = daysBetween;
+
+        System.out.println(daysBetween);
+
+        // Get the different between two dates
+        int years = (int)(daysBetween / 365);
+        daysLeft = daysLeft - (years * 365);
+        System.out.println((years % 365));
+        int months = (int)(daysLeft / 30);
+        daysLeft = daysLeft - (months * 30);
+        int days = (int)(daysLeft);
+        
+        return Integer.toString(years) + "/" + Integer.toString(months) + "/" + Integer.toString(days);
+    }
+
+    public void displayVehicleInfo() {
+        System.out.println("\n\n>>>>>>>>>>>>>>>>>>>>>>>>>>>> vehicle info >>>");
+        System.out.println("Vehicle's brand: " + this.brand + " Made by: " + this.factory);
+        System.out.println("Color: " + this.color + " Passengers number: " + this.passengersNum);
+        System.out.println("Tires number: " + this.tiresNum + " Horsepower: " + this.horsePower);
+        System.out.println("Buying date: " + this.buyingDate + " ID plate: " + this.idPlate);
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
     }
 }
