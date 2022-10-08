@@ -28,9 +28,8 @@ public final class Utils {
 
         LocalDate date = LocalDate.of(year, month, day);
 
-        // I need to validate the idPlate
-        System.out.println("ID: ");
-        int idPlate = keyboard.nextInt();
+        System.out.println("ID (9 digits): ");
+        int idPlate = validateIdPlate();
 
         System.out.println("Tires number: ");
         int tiresNum = inputAndValidatePositiveInt();
@@ -151,6 +150,26 @@ public final class Utils {
 
         } while(input < 0);
 
+        return input;
+    }
+
+    private static int validateIdPlate() {
+        int input;
+        boolean inputValid = false;
+
+        do {
+            input = keyboard.nextInt();
+
+            if (input < 100000000 || input > 999999999) {
+                System.out.println("Invalid input! Try again: ");
+            }
+            else {
+                inputValid = true;
+                break;
+            }
+
+        } while(!inputValid);
+        
         return input;
     }
 
