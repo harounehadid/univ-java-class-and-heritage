@@ -12,7 +12,7 @@ public class RaceCar extends Car {
         int passengersNum, 
         LocalDate buyingDate, 
         int idPlate,
-        ArrayList tiresNum, 
+        int tiresNum, 
         int horsePower, 
         float pickupTime,
         boolean isTurbo

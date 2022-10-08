@@ -9,7 +9,7 @@ public final class Utils {
         String brand = keyboard.nextLine();
 
         System.out.println("Factory: ");
-        String Factory = keyboard.nextLine();
+        String factory = keyboard.nextLine();
 
         System.out.println("Color: ");
         String color = keyboard.nextLine();
@@ -34,10 +34,11 @@ public final class Utils {
         int tiresNum = keyboard.nextInt();
 
         System.out.println("Horsepower: ");
-        int horspower = keyboard.nextInt();
+        int horsepower = keyboard.nextInt();
 
+        Vehicle vehicle = new Vehicle(brand, factory, color, passengerNum, date, idPlate, tiresNum, horsepower);
 
-        return null;
+        return vehicle;
     }
     
     public static RaceCar initiateRaceCar() {

@@ -29,7 +29,7 @@ public class App {
         int vehicleNum = keyboard.nextInt();
 
         if (vehicleNum == 0) {
-            System.out.println("\nNo vehicles to be added!");
+            System.out.println("\nNo vehicle to be added!");
             return;
         }
 
