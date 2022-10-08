@@ -26,4 +26,8 @@ public class ConvertibleCar extends Car {
         System.out.println("The number of doors: " + this.doorsNum);
     }
 
+    // Getters
+    public int getDoorsNumber() {
+        return this.doorsNum;
+    }
 }

@@ -32,4 +32,12 @@ public class Airplane extends Vehicle {
 
         System.out.println("The number of Engines: " + this.enginesNum + " Max altitude (feet): " + this.maxAltitude);
     }
+
+    // Getters
+    public int getEnginesNumber() {
+        return this.enginesNum;
+    }
+    public float getMaxAltitude() {
+        return maxAltitude;
+    }
 }
