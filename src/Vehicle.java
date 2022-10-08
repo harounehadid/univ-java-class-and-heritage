@@ -65,4 +65,30 @@ public class Vehicle {
         System.out.println("Buying date: " + this.buyingDate + " ID plate: " + this.idPlate);
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
     }
+
+    // Setting the getters
+    public String getBrand() {
+        return this.brand;
+    }
+    public String getFactory() {
+        return this.factory;
+    }
+    public String getColor() {
+        return this.color;
+    }
+    public int getPassengersNumber() {
+        return this.passengersNum;
+    }
+    public LocalDate getBuyingDate() {
+        return this.buyingDate;
+    }
+    public int getIdPlate() {
+        return this.idPlate;
+    }
+    public int getTiresNumber() {
+        return this.tiresNum;
+    }
+    public int getHorsePower() {
+        return this.horsePower;
+    }
 }
