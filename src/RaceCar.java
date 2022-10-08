@@ -20,6 +20,17 @@ public class RaceCar extends Car {
         this.isTurbo = isTurbo;
     }
 
+    public void displayVehicleInfo() {
+        super.displayVehicleInfo();
+
+        if (this.isTurbo) {
+            System.out.println("Turbo is available");
+        }
+        else {
+            System.out.println("Turbo is NOT available!");
+        }
+    }
+
     // Set getters
     public boolean getIsTurbo() {
         return this.isTurbo;

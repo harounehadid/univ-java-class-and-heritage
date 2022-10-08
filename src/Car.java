@@ -17,5 +17,11 @@ public class Car extends Vehicle {
     ) {
         super(brand, factory, color, passengersNum, buyingDate, idPlate, tiresNum, horsePower);
         this.pickupTime = pickupTime;
-    } 
+    }
+
+    public void displayVehicleInfo() {
+        super.displayVehicleInfo();
+
+        System.out.println("Pickup time: " + this.pickupTime);
+    }
 }

@@ -63,7 +63,6 @@ public class Vehicle {
         System.out.println("Color: " + this.color + " Passengers number: " + this.passengersNum);
         System.out.println("Tires number: " + this.tiresNum + " Horsepower: " + this.horsePower);
         System.out.println("Buying date: " + this.buyingDate + " ID plate: " + this.idPlate);
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
     }
 
     // Setting the getters

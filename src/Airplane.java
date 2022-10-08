@@ -26,4 +26,10 @@ public class Airplane extends Vehicle {
         // Will change it later
         return 3.14f;
     }
+
+    public void displayVehicleInfo() {
+        super.displayVehicleInfo();
+
+        System.out.println("The number of Engines: " + this.enginesNum + " Max altitude (feet): " + this.maxAltitude);
+    }
 }

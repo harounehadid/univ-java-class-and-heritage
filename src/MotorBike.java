@@ -14,4 +14,8 @@ public class MotorBike extends Vehicle {
     ) {
         super(brand, factory, color, passengersNum, buyingDate, idPlate, tiresNum, horsePower);
     }
+
+    public void displayVehicleInfo() {
+        super.displayVehicleInfo();
+    }
 }

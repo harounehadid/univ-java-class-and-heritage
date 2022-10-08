@@ -18,5 +18,12 @@ public class ConvertibleCar extends Car {
     ) {
         super(brand, factory, color, passengersNum, buyingDate, idPlate, tiresNum, horsePower, pickupTime);
         this.doorsNum = doorsNum;
-    } 
+    }
+
+    public void displayVehicleInfo() {
+        super.displayVehicleInfo();
+
+        System.out.println("The number of doors: " + this.doorsNum);
+    }
+
 }
