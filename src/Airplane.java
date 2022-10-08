@@ -23,8 +23,7 @@ public class Airplane extends Vehicle {
     }
     
     public float calculateCurrentAltitude(float mettersAboveGround) {
-        // Will change it later
-        return 3.14f;
+        return mettersAboveGround * 3.28084f;
     }
 
     public void displayVehicleInfo() {
