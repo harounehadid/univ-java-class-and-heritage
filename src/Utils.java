@@ -4,7 +4,7 @@ import java.util.Scanner;
 public final class Utils {
     static Scanner keyboard = new Scanner(System.in);
 
-    private static Vehicle initiateVehicle() {
+    public static Vehicle initiateVehicle() {
         System.out.println("Brand: ");
         String brand = keyboard.nextLine();
 
@@ -15,8 +15,9 @@ public final class Utils {
         String color = keyboard.nextLine();
 
         System.out.println("Passengers number: ");
-        int passengerNum = keyboard.nextInt();
+        int passengerNum = inputAndValidatePositiveInt();
 
+        // I need to validate the date too
         System.out.println("Buying date: ");
         System.out.println("Year ");
         int year = keyboard.nextInt();
@@ -27,23 +28,86 @@ public final class Utils {
 
         LocalDate date = LocalDate.of(year, month, day);
 
+        // I need to validate the idPlate
         System.out.println("ID: ");
         int idPlate = keyboard.nextInt();
 
         System.out.println("Tires number: ");
-        int tiresNum = keyboard.nextInt();
+        int tiresNum = inputAndValidatePositiveInt();
 
         System.out.println("Horsepower: ");
-        int horsepower = keyboard.nextInt();
+        int horsePower = inputAndValidatePositiveInt();
 
-        Vehicle vehicle = new Vehicle(brand, factory, color, passengerNum, date, idPlate, tiresNum, horsepower);
+        Vehicle vehicle = new Vehicle(brand, factory, color, passengerNum, date, idPlate, tiresNum, horsePower);
 
         return vehicle;
     }
     
     public static RaceCar initiateRaceCar() {
-        
+        Vehicle vehicle = initiateVehicle();
 
-        return null;
+        System.out.println("Pickup time: ");
+        int pickupTime = inputAndValidatePositiveInt();
+
+        System.out.println("Is Turbo available? ");
+        System.out.println("[y] for yes / [n] for no");
+        String[] inputList = {"n", "y"};
+        String input = inputAndValidateString(null, inputList);
+
+        boolean isTurbo = false;
+        if (input == "y") isTurbo = true;
+
+        RaceCar car = new RaceCar(
+                                    vehicle.getBrand(), 
+                                    vehicle.getFactory(), 
+                                    vehicle.getColor(), 
+                                    vehicle.getPassengersNumber(), 
+                                    vehicle.getBuyingDate(), 
+                                    vehicle.getIdPlate(), 
+                                    vehicle.getTiresNumber(), 
+                                    vehicle.getHorsePower(), 
+                                    pickupTime, 
+                                    isTurbo
+                                );
+
+        return car;
+    }
+
+    private static int inputAndValidatePositiveInt() {
+        int input;
+
+        do {
+            input = keyboard.nextInt();
+
+            if (input < 0) System.out.println("Invalid input! Try again: ");
+
+        } while(input < 0);
+
+        return input;
+    }
+
+    private static String inputAndValidateString(String input, String[] inputList) {
+        boolean inputExist = false;
+
+        do {  
+            if (input != null) {
+                input = input.toLowerCase();
+
+                for (int i = 0; i < inputList.length; i++) {
+                    if (input == inputList[i]) {
+                        inputExist = true;
+                        break;
+                    }
+                }
+            } 
+
+            if (!inputExist) {
+                if (input != null) System.out.println("Invalid input! Try again: ");
+                input = keyboard.nextLine();
+            }
+
+        } while(!inputExist);
+        
+        return input;
     }
 }
