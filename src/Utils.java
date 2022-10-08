@@ -73,6 +73,74 @@ public final class Utils {
         return car;
     }
 
+    public static ConvertibleCar initiateConvertibleCar() {
+        Vehicle vehicle = initiateVehicle();
+
+        System.out.println("Pickup time: ");
+        int pickupTime = inputAndValidatePositiveInt();
+
+        System.out.println("The number of doors: ");
+        int doorsNum = inputAndValidatePositiveInt();
+
+        ConvertibleCar car = new ConvertibleCar(
+                                    vehicle.getBrand(), 
+                                    vehicle.getFactory(), 
+                                    vehicle.getColor(), 
+                                    vehicle.getPassengersNumber(), 
+                                    vehicle.getBuyingDate(), 
+                                    vehicle.getIdPlate(), 
+                                    vehicle.getTiresNumber(), 
+                                    vehicle.getHorsePower(), 
+                                    pickupTime, 
+                                    doorsNum
+                                );
+
+        return car;
+    }
+
+    public static MotorBike initiateMotorBike() {
+        Vehicle vehicle = initiateVehicle();
+
+        MotorBike motorBike = new MotorBike(
+                                    vehicle.getBrand(), 
+                                    vehicle.getFactory(), 
+                                    vehicle.getColor(), 
+                                    vehicle.getPassengersNumber(), 
+                                    vehicle.getBuyingDate(), 
+                                    vehicle.getIdPlate(), 
+                                    vehicle.getTiresNumber(), 
+                                    vehicle.getHorsePower()
+                                );
+
+        return motorBike;
+    }
+
+    public static Airplane initiateAirplane() {
+        Vehicle vehicle = initiateVehicle();
+
+        System.out.println("The number of engines: ");
+        int enginesNum = inputAndValidatePositiveInt();
+
+        System.out.println("Max altitude: ");
+        int maxAltitude = inputAndValidatePositiveInt();
+
+        Airplane airplane = new Airplane(
+                                    vehicle.getBrand(), 
+                                    vehicle.getFactory(), 
+                                    vehicle.getColor(), 
+                                    vehicle.getPassengersNumber(), 
+                                    vehicle.getBuyingDate(), 
+                                    vehicle.getIdPlate(), 
+                                    vehicle.getTiresNumber(), 
+                                    vehicle.getHorsePower(),
+                                    enginesNum,
+                                    maxAltitude
+                                );
+
+        return airplane;
+    }
+
+    // Input validation functions
     private static int inputAndValidatePositiveInt() {
         int input;
 
