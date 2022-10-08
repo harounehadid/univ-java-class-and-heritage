@@ -1,5 +1,4 @@
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class ConvertibleCar extends Car {
 
@@ -12,7 +11,7 @@ public class ConvertibleCar extends Car {
         int passengersNum, 
         LocalDate buyingDate, 
         int idPlate,
-        ArrayList tiresNum, 
+        int tiresNum, 
         int horsePower, 
         float pickupTime,
         int doorsNum

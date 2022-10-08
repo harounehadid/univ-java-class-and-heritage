@@ -30,6 +30,9 @@ public final class Utils {
         System.out.println("ID: ");
         int idPlate = keyboard.nextInt();
 
+        System.out.println("Tires number: ");
+        int tiresNum = keyboard.nextInt();
+
         System.out.println("Horsepower: ");
         int horspower = keyboard.nextInt();
 

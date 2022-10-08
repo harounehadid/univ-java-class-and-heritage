@@ -1,5 +1,4 @@
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class Airplane extends Vehicle {
 
@@ -13,7 +12,7 @@ public class Airplane extends Vehicle {
         int passengersNum, 
         LocalDate buyingDate, 
         int idPlate,
-        ArrayList tiresNum, 
+        int tiresNum, 
         int horsePower,
         int enginesNum,
         float maxAltitude

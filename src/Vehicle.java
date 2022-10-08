@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
@@ -10,7 +9,7 @@ public class Vehicle {
     private int passengersNum;
     private LocalDate buyingDate;
     private int idPlate;
-    private ArrayList tiresNum;
+    private int tiresNum;
     private int horsePower;
 
     public Vehicle(
@@ -20,7 +19,7 @@ public class Vehicle {
         int passengersNum,
         LocalDate buyingDate,
         int idPlate,
-        ArrayList tiresNum,
+        int tiresNum,
         int horsePower
     ) {
 
