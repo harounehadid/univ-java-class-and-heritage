@@ -5,24 +5,9 @@ import java.util.Scanner;
 public class App {
 
     public static void main(String[] args) {
-        // LocalDate date = LocalDate.of(2015, 6, 23);
-        // ArrayList arr = new ArrayList<>();
-        // arr.add(4);
-
-        // System.out.println("Enter your name: ");
-
-        // String name = keyboard.nextLine();
-        // System.out.println("Hello sir " + name + "!");
-
-        // Vehicle vehicle = new Vehicle(
-        //     "Porche", "VW", "white", 2, date, 01007, arr, 580
-        // );
-
-        // System.out.println(vehicle.calculatePeriod());;
-        // vehicle.displayVehicleInfo();
-
         Scanner keyboard = new Scanner(System.in);
-        ArrayList vehicles = new ArrayList<>();
+        ArrayList vehicles = new ArrayList<Vehicle>();
+        int curIndex = 0;
 
         System.out.println("-------------- Welcome ---------------");
         System.out.println("How many vehicles you want to Add? ");
@@ -36,28 +21,44 @@ public class App {
         System.out.println("How many cars? ");
         int carsNum = keyboard.nextInt();
 
-        if (carsNum == vehicleNum) {
-            return;
+        System.out.println("How many race cars: ");
+        int raceCarsNum = keyboard.nextInt();
+        int convertibleCarsNum = carsNum - raceCarsNum;
+        System.out.println(convertibleCarsNum + " convertibles to create!");
+
+        for (int i = 0; i < raceCarsNum; i++) {
+            System.out.println("Enter car's infomation >");
+            RaceCar newCar = Utils.initiateRaceCar();
+            vehicles.add(newCar);
         }
+
+        for (int i = 0; i < convertibleCarsNum; i++) {
+            ConvertibleCar newCar = Utils.initiateConvertibleCar();
+            vehicles.add(newCar);
+        }
+
+        if (carsNum == vehicleNum) return;
 
         System.out.println("How many motor bikes? ");
         int motorBikesNum = keyboard.nextInt();
 
-        if ((carsNum + motorBikesNum) == vehicleNum) {
-            return;
+        for (int i = 0; i < motorBikesNum; i++) {
+            System.out.println("Enter Bike's infomation >");
+            MotorBike newMotor = Utils.initiateMotorBike();
+            vehicles.add(newMotor);
         }
+
+        if ((carsNum + motorBikesNum) == vehicleNum) return;
 
         System.out.println("How many airplanes? ");
         int airplanesNum = keyboard.nextInt();
 
-        System.out.println("\n---------------------------------\n");
-        
-        if (carsNum > 0) {
-            System.out.println("Enter the information related to the cars");
-
-            for (int i = 0; i < carsNum; i++) {
-                System.out.println("Car number " + i);
-            }
+        for (int i = 0; i < airplanesNum; i++) {
+            System.out.println("Enter car's infomation >");
+            Airplane newAirplane = Utils.initiateAirplane();
+            vehicles.add(newAirplane);
         }
+
+        System.out.println("\n---------------------------------\n");
     }
 }

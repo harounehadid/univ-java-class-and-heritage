@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public final class Utils {
@@ -192,6 +193,8 @@ public final class Utils {
                 if (input != null) System.out.println("Invalid input! Try again: ");
                 input = keyboard.nextLine();
             }
+
+            if (input != null && Arrays.asList(inputList).contains(input)) inputExist = true;
 
         } while(!inputExist);
         
