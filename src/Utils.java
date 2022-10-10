@@ -52,13 +52,15 @@ public final class Utils {
         System.out.print("Pickup time: ");
         int pickupTime = inputAndValidatePositiveInt();
 
+        boolean isTurbo = false;
         System.out.println("Is Turbo available? ");
         System.out.print("[y] for yes / [n] for no:  ");
         String[] inputList = {"n", "y"};
         String input = inputAndValidateString(null, inputList);
 
-        boolean isTurbo = false;
         if (input == "y") isTurbo = true;
+
+        if (input != "y") System.out.println("nooooooooooooooooooooooo");
 
         RaceCar car = new RaceCar(
                                     vehicle.getBrand(), 
@@ -193,6 +195,7 @@ public final class Utils {
             } 
 
             if (!inputExist) {
+                keyboard.nextLine();
                 if (input != null) System.out.println("Invalid input! Try again: ");
                 input = keyboard.nextLine();
             }

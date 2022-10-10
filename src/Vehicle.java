@@ -68,6 +68,7 @@ public class Vehicle {
         for (int i = 0; i < tiresSerialNum.size(); i++) {
             System.out.print(tiresSerialNum.get(i) + "  ");
         }
+        System.out.println("\n");
         System.out.println("Horsepower: " + this.horsePower);
         System.out.println("Buying date: " + this.buyingDate);
         System.out.println("ID plate: " + this.idPlate);
