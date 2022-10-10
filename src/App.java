@@ -1,79 +1,90 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
 
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
-        ArrayList raceCarsList = new ArrayList<RaceCar>();
-        ArrayList convertibleCarsList = new ArrayList<ConvertibleCar>();
-        ArrayList motorBikesList = new ArrayList<MotorBike>();
-        ArrayList airplaneList = new ArrayList<Airplane>();
+        List<Vehicle> vehiclesList = new ArrayList<Vehicle>();
         int vehiclesAdded = 0;
         int vehiclesLeft = 0;
 
         System.out.println("-------------- Welcome ---------------");
-        System.out.println("How many vehicles you want to Add? ");
-        int vehicleNum = keyboard.nextInt();
+        System.out.print("How many vehicles you want to Add? ");
+        int vehicleNum = Utils.inputAndValidatePositiveInt();
 
         if (vehicleNum == 0) {
             System.out.println("\nNo vehicle to be added!");
             return;
         }
 
-        System.out.println("How many cars? ");
-        int carsNum = keyboard.nextInt();
+        // Dealing with how much vehicles gonna be added
+        vehiclesLeft = vehicleNum;
 
-        System.out.println("How many race cars: ");
-        int raceCarsNum = keyboard.nextInt();
-        int convertibleCarsNum = carsNum - raceCarsNum;
-        System.out.println(convertibleCarsNum + " convertibles to create!");
+        int raceCarsNum = 0;
+        int convertibleCarsNum = 0;
+        int motorBikesNum = 0;
+        int airplanesNum = 0;
 
+        System.out.print("How many race cars? ");
+        raceCarsNum = Utils.inputAndValidateMaxIntLimit(vehiclesLeft);
+
+        vehiclesAdded = raceCarsNum;
+        vehiclesLeft -= raceCarsNum;
+        System.out.println("<< " + vehiclesLeft + " vehicles left to add! >>");
+
+        if (vehiclesLeft > 0) {
+            System.out.print("How many convertible cars? ");
+            convertibleCarsNum = Utils.inputAndValidateMaxIntLimit(vehiclesLeft);
+        }
+
+        vehiclesAdded += convertibleCarsNum;
+        vehiclesLeft -= convertibleCarsNum;
+        System.out.println("<< " + vehiclesLeft + " vehicles left to add! >>");
+
+        if (vehiclesLeft > 0) {
+            System.out.print("How many motor bikes? ");
+            motorBikesNum = Utils.inputAndValidateMaxIntLimit(vehiclesLeft);;
+        }
+
+        vehiclesAdded += motorBikesNum;
+        vehiclesLeft -= motorBikesNum;
+        System.out.println("<< " + vehiclesLeft + " vehicles left to add! >>");
+
+        if (vehiclesLeft > 0) {
+            System.out.print("How many airplanes? ");
+            airplanesNum = Utils.inputAndValidateMaxIntLimit(vehiclesLeft);;
+        }
+
+        // Adding the info related to vehicles and adding it to an arraylist of vehicles
         for (int i = 0; i < raceCarsNum; i++) {
             System.out.println("Enter car's infomation >");
             RaceCar newCar = Utils.initiateRaceCar();
-            raceCarsList.add(newCar);
+            vehiclesList.add(newCar);
         }
 
         for (int i = 0; i < convertibleCarsNum; i++) {
             ConvertibleCar newCar = Utils.initiateConvertibleCar();
-            convertibleCarsList.add(newCar);
+            vehiclesList.add(newCar);
         }
-
-        if (carsNum == vehicleNum) return;
-
-        vehiclesAdded = carsNum;
-        vehiclesLeft = vehicleNum - vehiclesAdded;
-        System.out.println(vehiclesLeft + " vehicles left to add!");
-
-        System.out.println("How many motor bikes? ");
-        int motorBikesNum = keyboard.nextInt();
 
         for (int i = 0; i < motorBikesNum; i++) {
             System.out.println("Enter Bike's infomation >");
             MotorBike newMotor = Utils.initiateMotorBike();
-            motorBikesList.add(newMotor);
+            vehiclesList.add(newMotor);
         }
-
-        if ((carsNum + motorBikesNum) == vehicleNum) return;
-
-        vehiclesAdded += motorBikesNum;
-        vehiclesLeft = vehicleNum - vehiclesAdded;
-        System.out.println(vehiclesLeft + " vehicles left to add!");
-
-        System.out.println("How many airplanes? ");
-        int airplanesNum = keyboard.nextInt();
 
         for (int i = 0; i < airplanesNum; i++) {
             System.out.println("Enter car's infomation >");
             Airplane newAirplane = Utils.initiateAirplane();
-            airplaneList.add(newAirplane);
+            vehiclesList.add(newAirplane);
         }
 
         System.out.println("\n---------------------------------\n");
 
-        for (int i = 0; i < raceCarsList.size(); i++) {
-            
+        for (Vehicle v : vehiclesList) {
+            v.displayVehicleInfo();
         }
     }
 }

@@ -2,21 +2,22 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.concurrent.ExecutionException;
 
 public final class Utils {
     static Scanner keyboard = new Scanner(System.in);
 
     public static Vehicle initiateVehicle() {
-        System.out.println("Brand: ");
+        System.out.print("Brand: ");
         String brand = keyboard.nextLine();
 
-        System.out.println("Factory: ");
+        System.out.print("Factory: ");
         String factory = keyboard.nextLine();
 
-        System.out.println("Color: ");
+        System.out.print("Color: ");
         String color = keyboard.nextLine();
 
-        System.out.println("Passengers number: ");
+        System.out.print("Passengers number: ");
         int passengerNum = inputAndValidatePositiveInt();
 
         // I need to validate the date too
@@ -30,21 +31,21 @@ public final class Utils {
 
         LocalDate date = LocalDate.of(year, month, day);
 
-        System.out.print("ID (9 digits): ");
-        int idPlate = validateIdPlate();
+        System.out.print("ID: ");
+        int idPlate = inputAndValidatePositiveInt();
 
         System.out.print("Tires number: ");
         int tiresNum = inputAndValidatePositiveInt();
 
         ArrayList tiresSerialNum = new ArrayList<Integer>();
         System.out.println("Enter the serial number for each tire:  ");
-        System.out.println("\t");
+        System.out.print("\t");
         for (int i = 0; i < tiresNum; i++) {
             int sNum = inputAndValidatePositiveInt();
             tiresSerialNum.add(sNum);
         }
 
-        System.out.println("Horsepower: ");
+        System.out.print("Horsepower: ");
         int horsePower = inputAndValidatePositiveInt();
 
         Vehicle vehicle = new Vehicle(brand, factory, color, passengerNum, date, idPlate, tiresSerialNum, horsePower);
@@ -59,7 +60,7 @@ public final class Utils {
         int pickupTime = inputAndValidatePositiveInt();
 
         System.out.println("Is Turbo available? ");
-        System.out.println("[y] for yes / [n] for no");
+        System.out.print("[y] for yes / [n] for no:  ");
         String[] inputList = {"n", "y"};
         String input = inputAndValidateString(null, inputList);
 
@@ -85,10 +86,10 @@ public final class Utils {
     public static ConvertibleCar initiateConvertibleCar() {
         Vehicle vehicle = initiateVehicle();
 
-        System.out.println("Pickup time: ");
+        System.out.print("Pickup time: ");
         int pickupTime = inputAndValidatePositiveInt();
 
-        System.out.println("The number of doors: ");
+        System.out.print("The number of doors: ");
         int doorsNum = inputAndValidatePositiveInt();
 
         ConvertibleCar car = new ConvertibleCar(
@@ -127,10 +128,10 @@ public final class Utils {
     public static Airplane initiateAirplane() {
         Vehicle vehicle = initiateVehicle();
 
-        System.out.println("The number of engines: ");
+        System.out.print("The number of engines: ");
         int enginesNum = inputAndValidatePositiveInt();
 
-        System.out.println("Max altitude: ");
+        System.out.print("Max altitude: ");
         int maxAltitude = inputAndValidatePositiveInt();
 
         Airplane airplane = new Airplane(
@@ -150,7 +151,7 @@ public final class Utils {
     }
 
     // Input validation functions
-    private static int inputAndValidatePositiveInt() {
+    public static int inputAndValidatePositiveInt() {
         int input;
 
         do {
@@ -163,25 +164,25 @@ public final class Utils {
         return input;
     }
 
-    private static int validateIdPlate() {
-        int input;
-        boolean inputValid = false;
+    // private static int validateIdPlate() {
+    //     int input;
+    //     boolean inputValid = false;
 
-        do {
-            input = keyboard.nextInt();
+    //     do {
+    //         input = keyboard.nextInt();
 
-            if (input < 100000000 || input > 999999999) {
-                System.out.println("Invalid input! Try again: ");
-            }
-            else {
-                inputValid = true;
-                break;
-            }
+    //         if (input < 100000000 || input > 999999999) {
+    //             System.out.println("Invalid input! Try again: ");
+    //         }
+    //         else {
+    //             inputValid = true;
+    //             break;
+    //         }
 
-        } while(!inputValid);
+    //     } while(!inputValid);
         
-        return input;
-    }
+    //     return input;
+    // }
 
     private static String inputAndValidateString(String input, String[] inputList) {
         boolean inputExist = false;
@@ -210,8 +211,20 @@ public final class Utils {
         return input;
     }
 
-    // Display
-    public void displayVehicleTypeList(ArrayList arrList) {
-        
+    
+
+    public static int inputAndValidateMaxIntLimit(int maxInput) {
+        int input;
+
+        do {
+            input = Utils.inputAndValidatePositiveInt();
+
+            if (input > maxInput) {
+                System.out.print("Input exceeded limits of " + maxInput + " try again!  ");
+            }
+
+        } while (input > maxInput);
+
+        return input;
     }
 }
