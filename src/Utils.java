@@ -21,15 +21,9 @@ public final class Utils {
         int passengerNum = inputAndValidatePositiveInt();
 
         // I need to validate the date too
-        System.out.print("Buying date: ");
-        System.out.print("Year - ");
-        int year = keyboard.nextInt();
-        System.out.print("Month - ");
-        int month = keyboard.nextInt();
-        System.out.print("Day - ");
-        int day = keyboard.nextInt();
 
-        LocalDate date = LocalDate.of(year, month, day);
+
+        LocalDate date = inputAndValidateDate();
 
         System.out.print("ID: ");
         int idPlate = inputAndValidatePositiveInt();
@@ -211,7 +205,35 @@ public final class Utils {
         return input;
     }
 
-    
+    public static LocalDate inputAndValidateDate() {
+        LocalDate buyingDate = LocalDate.now();
+        boolean dateIsCorrect = true;
+        int year;
+        int month;
+        int day;
+
+        do {
+            try {
+                System.out.print("Buying date: ");
+                System.out.print("Year - ");
+                year = keyboard.nextInt();
+                System.out.print("Month - ");
+                month = keyboard.nextInt();
+                System.out.print("Day - ");
+                day = keyboard.nextInt();
+
+                buyingDate = LocalDate.of(year, month, day);
+                dateIsCorrect = true;
+            } catch (Exception e) {
+                System.out.println("Wrong date! try again: ");
+                dateIsCorrect = false;
+            }
+
+        } while (!dateIsCorrect);
+
+
+        return buyingDate;
+    }
 
     public static int inputAndValidateMaxIntLimit(int maxInput) {
         int input;
