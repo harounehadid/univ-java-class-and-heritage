@@ -30,7 +30,8 @@ public class Airplane extends Vehicle {
     public void displayVehicleInfo() {
         super.displayVehicleInfo();
 
-        System.out.println("The number of Engines: " + this.enginesNum + " Max altitude (feet): " + this.maxAltitude);
+        System.out.println("The number of Engines: " + this.enginesNum);
+        System.out.println(" Max altitude (feet): " + this.maxAltitude);
     }
 
     // Getters

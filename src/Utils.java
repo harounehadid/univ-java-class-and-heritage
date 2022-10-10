@@ -8,6 +8,7 @@ public final class Utils {
     static Scanner keyboard = new Scanner(System.in);
 
     public static Vehicle initiateVehicle() {
+        // This is to flush scanner buffer
         keyboard.nextLine();
 
         System.out.print("Brand: ");
@@ -22,9 +23,6 @@ public final class Utils {
         System.out.print("Passengers number: ");
         int passengerNum = inputAndValidatePositiveInt();
 
-        // I need to validate the date too
-
-
         LocalDate date = inputAndValidateDate();
 
         System.out.print("ID: ");
@@ -35,7 +33,6 @@ public final class Utils {
 
         ArrayList tiresSerialNum = new ArrayList<Integer>();
         System.out.println("Enter the serial number for each tire:  ");
-        System.out.print("\t");
         for (int i = 0; i < tiresNum; i++) {
             int sNum = inputAndValidatePositiveInt();
             tiresSerialNum.add(sNum);
@@ -52,7 +49,7 @@ public final class Utils {
     public static RaceCar initiateRaceCar() {
         Vehicle vehicle = initiateVehicle();
 
-        System.out.println("Pickup time: ");
+        System.out.print("Pickup time: ");
         int pickupTime = inputAndValidatePositiveInt();
 
         System.out.println("Is Turbo available? ");

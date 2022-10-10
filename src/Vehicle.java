@@ -60,14 +60,17 @@ public class Vehicle {
 
     public void displayVehicleInfo() {
         System.out.println("\n\n>>>>>>>>>>>>>>>>>>>>>>>>>>>> vehicle info >>>");
-        System.out.println("Vehicle's brand: " + this.brand + " Made by: " + this.factory);
-        System.out.println("Color: " + this.color + " Passengers number: " + this.passengersNum);
+        System.out.println("Vehicle's brand: " + this.brand);
+        System.out.println("Made by: " + this.factory);
+        System.out.println("Color: " + this.color);
+        System.out.println("Passengers number: " + this.passengersNum);
         System.out.println("Tires serial numbers: ");
         for (int i = 0; i < tiresSerialNum.size(); i++) {
             System.out.print(tiresSerialNum.get(i) + "  ");
         }
         System.out.println("Horsepower: " + this.horsePower);
-        System.out.println("Buying date: " + this.buyingDate + " ID plate: " + this.idPlate);
+        System.out.println("Buying date: " + this.buyingDate);
+        System.out.println("ID plate: " + this.idPlate);
     }
 
     // Setting the getters
