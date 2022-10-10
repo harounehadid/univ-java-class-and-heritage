@@ -5,9 +5,7 @@ import java.util.Scanner;
 public class App {
 
     public static void main(String[] args) {
-        Scanner keyboard = new Scanner(System.in);
         List<Vehicle> vehiclesList = new ArrayList<Vehicle>();
-        int vehiclesAdded = 0;
         int vehiclesLeft = 0;
 
         System.out.println("-------------- Welcome ---------------");
@@ -30,7 +28,6 @@ public class App {
         System.out.print("How many race cars? ");
         raceCarsNum = Utils.inputAndValidateMaxIntLimit(vehiclesLeft);
 
-        vehiclesAdded = raceCarsNum;
         vehiclesLeft -= raceCarsNum;
         System.out.println("<< " + vehiclesLeft + " vehicles left to add! >>");
 
@@ -39,7 +36,6 @@ public class App {
             convertibleCarsNum = Utils.inputAndValidateMaxIntLimit(vehiclesLeft);
         }
 
-        vehiclesAdded += convertibleCarsNum;
         vehiclesLeft -= convertibleCarsNum;
         System.out.println("<< " + vehiclesLeft + " vehicles left to add! >>");
 
@@ -48,7 +44,6 @@ public class App {
             motorBikesNum = Utils.inputAndValidateMaxIntLimit(vehiclesLeft);;
         }
 
-        vehiclesAdded += motorBikesNum;
         vehiclesLeft -= motorBikesNum;
         System.out.println("<< " + vehiclesLeft + " vehicles left to add! >>");
 
@@ -65,6 +60,7 @@ public class App {
         }
 
         for (int i = 0; i < convertibleCarsNum; i++) {
+            System.out.println("Enter car's infomation >");
             ConvertibleCar newCar = Utils.initiateConvertibleCar();
             vehiclesList.add(newCar);
         }
@@ -76,7 +72,7 @@ public class App {
         }
 
         for (int i = 0; i < airplanesNum; i++) {
-            System.out.println("Enter car's infomation >");
+            System.out.println("Enter airplane's infomation >");
             Airplane newAirplane = Utils.initiateAirplane();
             vehiclesList.add(newAirplane);
         }

@@ -8,6 +8,8 @@ public final class Utils {
     static Scanner keyboard = new Scanner(System.in);
 
     public static Vehicle initiateVehicle() {
+        keyboard.nextLine();
+
         System.out.print("Brand: ");
         String brand = keyboard.nextLine();
 
