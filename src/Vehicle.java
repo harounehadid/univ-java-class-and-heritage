@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 
 public class Vehicle {
     
@@ -9,7 +10,7 @@ public class Vehicle {
     private int passengersNum;
     private LocalDate buyingDate;
     private int idPlate;
-    private int tiresNum;
+    private ArrayList tiresSerialNum;
     private int horsePower;
 
     public Vehicle(
@@ -19,7 +20,7 @@ public class Vehicle {
         int passengersNum,
         LocalDate buyingDate,
         int idPlate,
-        int tiresNum,
+        ArrayList tiresSerialNum,
         int horsePower
     ) {
 
@@ -29,7 +30,7 @@ public class Vehicle {
         this.passengersNum = passengersNum;
         this.buyingDate = buyingDate;
         this.idPlate = idPlate;
-        this.tiresNum = tiresNum;
+        this.tiresSerialNum = tiresSerialNum;
         this.horsePower = horsePower;
     }
 
@@ -61,7 +62,11 @@ public class Vehicle {
         System.out.println("\n\n>>>>>>>>>>>>>>>>>>>>>>>>>>>> vehicle info >>>");
         System.out.println("Vehicle's brand: " + this.brand + " Made by: " + this.factory);
         System.out.println("Color: " + this.color + " Passengers number: " + this.passengersNum);
-        System.out.println("Tires number: " + this.tiresNum + " Horsepower: " + this.horsePower);
+        System.out.println("Tires serial numbers: ");
+        for (int i = 0; i < tiresSerialNum.size(); i++) {
+            System.out.print(tiresSerialNum.get(i) + "  ");
+        }
+        System.out.println("Horsepower: " + this.horsePower);
         System.out.println("Buying date: " + this.buyingDate + " ID plate: " + this.idPlate);
     }
 
@@ -84,8 +89,8 @@ public class Vehicle {
     public int getIdPlate() {
         return this.idPlate;
     }
-    public int getTiresNumber() {
-        return this.tiresNum;
+    public ArrayList getTiresNumber() {
+        return this.tiresSerialNum;
     }
     public int getHorsePower() {
         return this.horsePower;

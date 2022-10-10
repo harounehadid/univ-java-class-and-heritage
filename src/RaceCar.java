@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class RaceCar extends Car {
 
@@ -11,12 +12,12 @@ public class RaceCar extends Car {
         int passengersNum, 
         LocalDate buyingDate, 
         int idPlate,
-        int tiresNum, 
+        ArrayList tiresSerialNum, 
         int horsePower, 
         float pickupTime,
         boolean isTurbo
     ) {
-        super(brand, factory, color, passengersNum, buyingDate, idPlate, tiresNum, horsePower, pickupTime);
+        super(brand, factory, color, passengersNum, buyingDate, idPlate, tiresSerialNum, horsePower, pickupTime);
         this.isTurbo = isTurbo;
     }
 

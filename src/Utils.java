@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -19,26 +20,34 @@ public final class Utils {
         int passengerNum = inputAndValidatePositiveInt();
 
         // I need to validate the date too
-        System.out.println("Buying date: ");
-        System.out.println("Year ");
+        System.out.print("Buying date: ");
+        System.out.print("Year - ");
         int year = keyboard.nextInt();
-        System.out.println("Month ");
+        System.out.print("Month - ");
         int month = keyboard.nextInt();
-        System.out.println("Day ");
+        System.out.print("Day - ");
         int day = keyboard.nextInt();
 
         LocalDate date = LocalDate.of(year, month, day);
 
-        System.out.println("ID (9 digits): ");
+        System.out.print("ID (9 digits): ");
         int idPlate = validateIdPlate();
 
-        System.out.println("Tires number: ");
+        System.out.print("Tires number: ");
         int tiresNum = inputAndValidatePositiveInt();
+
+        ArrayList tiresSerialNum = new ArrayList<Integer>();
+        System.out.println("Enter the serial number for each tire:  ");
+        System.out.println("\t");
+        for (int i = 0; i < tiresNum; i++) {
+            int sNum = inputAndValidatePositiveInt();
+            tiresSerialNum.add(sNum);
+        }
 
         System.out.println("Horsepower: ");
         int horsePower = inputAndValidatePositiveInt();
 
-        Vehicle vehicle = new Vehicle(brand, factory, color, passengerNum, date, idPlate, tiresNum, horsePower);
+        Vehicle vehicle = new Vehicle(brand, factory, color, passengerNum, date, idPlate, tiresSerialNum, horsePower);
 
         return vehicle;
     }
@@ -199,5 +208,10 @@ public final class Utils {
         } while(!inputExist);
         
         return input;
+    }
+
+    // Display
+    public void displayVehicleTypeList(ArrayList arrList) {
+        
     }
 }

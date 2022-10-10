@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class MotorBike extends Vehicle {
 
@@ -9,10 +10,10 @@ public class MotorBike extends Vehicle {
         int passengersNum, 
         LocalDate buyingDate, 
         int idPlate,
-        int tiresNum, 
+        ArrayList tiresSerialNum, 
         int horsePower
     ) {
-        super(brand, factory, color, passengersNum, buyingDate, idPlate, tiresNum, horsePower);
+        super(brand, factory, color, passengersNum, buyingDate, idPlate, tiresSerialNum, horsePower);
     }
 
     public void displayVehicleInfo() {
